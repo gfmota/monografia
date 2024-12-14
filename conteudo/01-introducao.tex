@@ -1,0 +1,24 @@
+%!TeX root=../tese.tex
+%("dica" para o editor de texto: este arquivo é parte de um documento maior)
+% para saber mais: https://tex.stackexchange.com/q/78101
+
+%% ------------------------------------------------------------------------- %%
+
+% "\chapter" cria um capítulo com número e o coloca no sumário; "\chapter*"
+% cria um capítulo sem número e não o coloca no sumário. A introdução não
+% deve ser numerada, mas deve aparecer no sumário. Por conta disso, este
+% modelo define o comando "\chapter**".
+\chapter{Introduction}
+\label{cap:introduction}
+
+\enlargethispage{.5\baselineskip}
+
+The concept of building applications with a set of loosely coupled services emerged in 1997 on IBM's Enterprise Java Bean (EJB). But it was only with the REST APIs grow at early 2010s that microservice were popularized as an established architecture for large systems that requires fast pace growth, continuous integration and scalability.
+
+As a recent software architecture style, there is a lack of formal knowledge and experimentation in some areas, such as around its patterns and their API interfaces, inter-service communication and data management.
+
+Extensibility is the capability of a component to extends its functionality to similar uses. An extensible system can help developers reduce work to implement new features, and architects reuse components to create simpler solutions.
+
+Microservices can help with extensibility because of the concept of modularization and single-responsibility attached to each microservice. Allowing systems to apply extensibility only on key services for, and impact the whole architecture.
+
+This work studies multiple microservices use cases, from a developer and architect perspective, exploring the concept of extensibility and others non-functional requirements, regarding services’ contracts, communication and managements.
