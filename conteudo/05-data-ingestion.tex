@@ -22,7 +22,7 @@
 \label{chap:dataingestion}
 
 \section{Introduction}
-\label{sec:introduction}
+\label{sec:introductioning}
 OpenDataHub (ODH) is a digital platform that makes data from different sources available in a standardized pattern, removing the complexity from integrating multiple data sources for the users. The full picture of their system can be split on three functionalities:
 
 \begin{itemize}
@@ -36,7 +36,7 @@ This case study focuses on the data ingestion architecture, and how to increase 
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{collector-consumer-CONTEXT.drawio}
-    \caption{Data Ingestion context diagram.\label{fig:subfigures}}
+    \caption{Data Ingestion context diagram.\label{fig:subfigures9}}
 \end{figure}
 
 \section{Current architecture}
@@ -49,7 +49,7 @@ The current architecture uses independent applications dedicated to each data so
 \begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{collector-consumer-OLD CONTAINERS.drawio}
-    \caption{Data Ingestion current architecture containers diagram.\label{fig:subfigures}}
+    \caption{Data Ingestion current architecture containers diagram.\label{fig:subfigures10}}
 \end{figure}
 
 This solution contains a problem of redundant work for each data collector service: they all have code to connect with the ODH's persistence system and might benefit from reusing processing and transformation tooling. This creates N dependencies with the storage, consequently, if there is a change in how the connection with the ODH's persistence system is made, it would require changing every data collector.
@@ -100,9 +100,9 @@ However, the raw data persistence does not depend on the metadata configuration.
 \end{figure}
 
 \subsection{Metadata}
-\label{sec:ingestion}
+\label{sec:metadata}
 
-The solution uses structural metadata about the data ingested to transform data from its raw structure into the ODH's stations pattern. This metadata can be sent or collected with the data, or can be configured to be applied on data collected during a time range.
+The solution uses structural metadata about the data ingested to transform data from its raw structure into the ODH's stations pattern. This metadata can be sent or collected with the data, or can be configured to be applied on data collected during a time range~\cite{Metadata}.
 
 There is a metadata storage to store active configurations and to help debugging. The application dedicated to handle access and operations on the storage is the Metadata Service.
 
