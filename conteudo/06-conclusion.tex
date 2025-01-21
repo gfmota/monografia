@@ -1,34 +1,22 @@
-%!TeX root=../tese.tex
-%("dica" para o editor de texto: este arquivo é parte de um documento maior)
-% para saber mais: https://tex.stackexchange.com/q/78101
-
-% Vamos definir alguns comandos auxiliares para facilitar.
-
-% "textbackslash" é muito comprido.
 \newcommand{\sla}{\textbackslash}
 
-% Vamos escrever comandos (como "make" ou "itemize") com formatação especial.
 \newcommand{\cmd}[1]{\textsf{#1}}
 
-% Idem para packages; aqui estamos usando a mesma formatação de \cmd,
-% mas poderíamos escolher outra.
 \newcommand{\pkg}[1]{\textsf{#1}}
 
-% A maioria dos comandos LaTeX começa com "\"; vamos criar um
-% comando que já coloca essa barra e formata com "\cmd".
 \newcommand{\ltxcmd}[1]{\cmd{\sla{}#1}}
 
 \chapter{Conclusion}
 \label{chap:conclusion}
 
-This work studied two MSA case studies and explore different scenarios to find architecture characteristics that grants extensibility to the system. The first case study focused on a Data Provider that provides access to a data source for multiple clients, it was implemented in three different scenarios, that differ in communication methods, infrastructure components and client responsibilities. On the second scenario, we focused on a Data Ingestion system, based on the OpenDataHub's use case, that provides a ports of entrance for data from multiple sources, with different structures and units, to be integrated in a single data storage system. It was made one architecture proposal, with implementation, and compared with their current approach.
+This work studied two MSA case studies and explored different scenarios to find architectural characteristics that grant extensibility to the system. The first case study focused on a Data Provider that provides access to a data source for multiple clients, it was implemented in three different scenarios, that differ in communication methods, infrastructure components, and client responsibilities. In the second scenario, we focused on a Data Ingestion system, based on OpenDataHub's use case, that provides a port of entrance for data from multiple sources, with different structures and units, to be integrated into a single data storage system. It was made one architecture proposal, with implementation, and compared with their current approach.
 
-The first case study provided a comparison over different approaches to client-server communication, synchronous and asynchronous, and over communication methods, HTTP requests and message broker queues. This made possible to conclude that the asynchronous communication via message broker allows for a higher level of extensibility and scalability, because it doesn't create a direct dependency between the client and the provider. However, the use of asynchronous communication restrict the client autonomy to fetch the data as needed, and this can be a downside for scenarios where clients have a low data source usage.
+The first case study provided a comparison of different approaches to client-server communication, synchronous and asynchronous communication methods, HTTP requests, and message broker queues. This made it possible to conclude that asynchronous communication via message broker allows for a higher level of extensibility and scalability because it doesn't create a direct dependency between the client and the provider. However, the use of asynchronous communication restricts the client's autonomy to fetch the data as needed, and this can be a downside for scenarios where clients have low data source usage.
 
-The second case study provided an example of concern split, modularization and generalization to increase extensibility. Splitting the system in small applications with a single responsibility allows for code reusability increase and reduce work to add new features. Generalizing the transformation logic, by using structural metadata configuration, increases code reusability and reduce code changes needed to update features behavior.
+The second case study provided an example of concern split, modularization, and generalization to increase extensibility. Splitting the system into small applications with a single responsibility allows for code reusability to increase and reduce work to add new features. Generalizing the transformation logic, by using structural metadata configuration, increases code reusability and reduces code changes needed to update features behavior.
 
-Overall, both case studies exemplifies how the use of asynchronous communication between services can help architectures to increase extensibility and service autonomy. Because it makes possible to services communicate without worrying about which and when an application is going to handle the communication message.
+Overall, both case studies exemplify how the use of asynchronous communication between services can help architectures increase extensibility and service autonomy. Because it makes it possible for services to communicate without worrying about which and when an application is going to handle the communication message.
 
-Another concept utilized in both case studies is the use of data storage to perform tracking and to reduce communication overhead by storing reutilizable data. Reducing the communication needed to perform an action for a new feature is key to increase extensibility, once it reduce dependencies between services and code needed to add new features or update them.
+Another concept utilized in both case studies is the use of data storage to perform tracking and reduce communication overhead by storing reutilizable data. Reducing the communication needed to perform an action for a new feature is key to increasing extensibility, once it reduces dependencies between services and code needed to add new features or update them.
 
-In conclusion, this works exemplifies how the use of asynchronous communication between service and data storage for reusable data can increate the extensibility of a Microserice system's architecture. It also provides implementation examples, developer experience reports and conclusions based on metrics collected in runtime.
+In conclusion, this work exemplifies how the use of asynchronous communication between service and data storage for reusable data can increase the extensibility of a Microservice system's architecture. It also provides implementation examples, developer experience reports, and conclusions based on metrics collected in runtime.

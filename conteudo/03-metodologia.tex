@@ -1,8 +1,8 @@
 \chapter{Methodology}
 
-The goal of this work is to explore the concept of extensibility on MSA, Microservice Architecture, and understand which components and concepts are key to develop an extensible software system. To reach it, we study two software use case with different MSA solutions, comparing each solution regarding design, development, and execution.
+The goal of this work is to explore the concept of extensibility on MSA, and Microservice Architecture, and understand which components and concepts are key to developing an extensible software system. To reach it, we study two software use cases with different MSA solutions, comparing each solution regarding design, development, and execution.
 
-To do so, the study was done in an iterative process with solution design, architecture implementation, metrics collection and evaluation, inspired by Design Science Research(~\cite{DesignParad}).
+To do so, the study was done in an iterative process with solution design, architecture implementation, metrics collection, and evaluation, inspired by Design Science Research(~\cite{DesignParad}).
 
 \begin{figure}
     \centering
@@ -10,7 +10,7 @@ To do so, the study was done in an iterative process with solution design, archi
     \caption{Methodology cycle.\label{fig:subfigures1}}
 \end{figure}
 
-During the solution design, we set the use case that is going to be studied and which architectures solutions, or scenarios, we want to explore. Then, the architecture's microservices are implemented and integrated locally. Once the application is ready, it is executed on different tests according to the study case and metrics are collected in regards to development experience and runtime measurements. At the end of the iteration, the scenarios are compared and the metrics collected are evaluated.
+During the solution design, we set the use case that is going to be studied and which architecture solutions, or scenarios, we want to explore. Then, the architecture's microservices are implemented and integrated locally. Once the application is ready, it is executed on different tests according to the study case and metrics are collected in regards to development experience and runtime measurements. At the end of the iteration, the scenarios are compared and the metrics collected are evaluated.
 
 \begin{figure}
     \centering
@@ -20,11 +20,11 @@ During the solution design, we set the use case that is going to be studied and 
 
 It was done in two iterations, each iteration was a case study where the use of microservices is required and extensibility is a non-functional requirement.
 
-The first iteration was based on a common feature from multiple systems: a service dedicated to handling access and serving data from a common data storage to different clients. We named this case as “Data Provider”.
+The first iteration was based on a common feature from multiple systems: a service dedicated to handling access and serving data from common data storage to different clients. We named this case as “Data Provider”.
 
 An initial solution is to protect the data source by exposing it as a service. The clients then access it via a REST API using a polling strategy. This study case compares it with two asynchronous approaches: a registration system that implements internally the broadcasting of the data exposed as REST API, and an event-based communication that delegates the broadcasting to a message broker.
 
-The iteration started with the implementation of each scenario on a SpringBoot application according to the following GitHub's pull requests:
+The iteration started with the implementation of each scenario on a SpringBoot application according to the following GitHub pull requests:
 
 \begin{itemize}
     \item Polling gateway implementation: https://github.com/gfmota/charging-plug-gateway/pull/4
@@ -32,7 +32,7 @@ The iteration started with the implementation of each scenario on a SpringBoot a
     \item Message-broker based implementation: https://github.com/gfmota/charging-plug-gateway/pull/1
 \end{itemize}
 
-Then, we wanted  to compare the technical effort necessary to extend the features in each scenario. So, we extended each scenario with a new microservice.
+Then, we wanted to compare the technical effort necessary to extend the features in each scenario. So, we extended each scenario with a new microservice.
 
 \begin{itemize}
     \item Polling provider new feature implementation: https://github.com/gfmota/charging-plug-gateway/pull/5
@@ -40,18 +40,18 @@ Then, we wanted  to compare the technical effort necessary to extend the feature
     \item Message-broker provider new feature implementation: https://github.com/gfmota/charging-plug-gateway/pull/8
 \end{itemize}
 
-During development, we collected developer experience metrics from a junior software engineer developing each provider. Such as, number of lines changed and knowledge necessary for each scenario. Due to the small sample, this may contain bias, and we encourage the experiment with a larger sample and a bigger context. 
+During development, we collected developer experience metrics from a junior software engineer developing each provider. Such as, the number of lines changed and knowledge necessary for each scenario. Due to the small sample, this may contain bias, and we encourage the experiment with a larger sample and a bigger context. 
 
-After the implementation, each scenario was run locally in three clients usage battery, with 10, 100 and 1000 clients simultaneously for each one of the three data types provided. During runtime, we collected application’s health metrics from the data provider, such as CPU and memory usage, success and database access rate.
+After the implementation, each scenario was run locally in three clients' usage battery, with 10, 100, and 1000 clients simultaneously for each one of the three data types provided. During runtime, we collected the application’s health metrics from the data provider, such as CPU and memory usage, success, and database access rate.
 
-Then, we used the developer experience and runtime metrics to compare each scenario in regards to extensibility, scalability, data source usage, client autonomy and infrastructure cost.  
+Then, we used the developer experience and runtime metrics to compare each scenario in regard to extensibility, scalability, data source usage, client autonomy, and infrastructure cost.  
 
-On the second iteration, the work studied the OpenDataHub's Data Ingestion use case. The Data Ingestion system is composed of several applications dedicated to collect and receive data from multiple external sources, transform them into a standardize structure and save on a common data storage.
+On the second iteration, the work studied OpenDataHub's Data Ingestion use case. The Data Ingestion system is composed of several applications dedicated to collecting and receiving data from multiple external sources, transforming them into a standardized structure, and saving on common data storage.
 
-We talked with the OpenDataHub's team to understand the current architecture, the requirements it met, and the desired requirements that are currently unfullfilled. 
+We talked with OpenDataHub's team to understand the current architecture, the requirements it met, and the desired requirements that are currently unfulfilled. 
 
-Then, we designed a new architecture to accomodate both the old and the new requirements, and implemented it as followed on the GitHub's repository https://github.com/gfmota/data-ingestion-monorepo.
+Then, we designed a new architecture to accommodate both the old and the new requirements and implemented it as follows on GitHub's repository https://github.com/gfmota/data-ingestion-monorepo.
 
-The implementation contains the integration of a Austrian Geosphere's dataset, provided by the OpenDataHub's team, as an example.
+The implementation contains the integration of an Austrian Geosphere dataset, provided by the OpenDataHub's team, as an example.
 
-The implementation is used to simulate a dataset integration, active and passive integration, and to collect some analytical data about the new architecture. Then, we compared the current and the proposed architecture theoretically in regards to extensibility, work necessary to integrate a new dataset, and the system's functional requirements.
+The implementation is used to simulate dataset integration, active and passive integration, and to collect some analytical data about the new architecture. Then, we compared the current and the proposed architecture theoretically in regard to extensibility, the work necessary to integrate a new dataset, and the system's functional requirements.
