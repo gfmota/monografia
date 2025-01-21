@@ -1,21 +1,9 @@
-%!TeX root=../tese.tex
-%("dica" para o editor de texto: este arquivo é parte de um documento maior)
-% para saber mais: https://tex.stackexchange.com/q/78101
-
-% Vamos definir alguns comandos auxiliares para facilitar.
-
-% "textbackslash" é muito comprido.
 \newcommand{\sla}{\textbackslash}
 
-% Vamos escrever comandos (como "make" ou "itemize") com formatação especial.
 \newcommand{\cmd}[1]{\textsf{#1}}
 
-% Idem para packages; aqui estamos usando a mesma formatação de \cmd,
-% mas poderíamos escolher outra.
 \newcommand{\pkg}[1]{\textsf{#1}}
 
-% A maioria dos comandos LaTeX começa com "\"; vamos criar um
-% comando que já coloca essa barra e formata com "\cmd".
 \newcommand{\ltxcmd}[1]{\cmd{\sla{}#1}}
 
 \chapter{Data Provider Study Case}
@@ -24,11 +12,11 @@
 \section{Introduction}
 \label{sec:introductionprov}
 
-This experiment focuses on microservice extensibility, i.e., how to architect a microservice-based system to facilitate extension, either by making it easier to receive new features, or by maintaining a single functionality. 
+This study case explores a Data Provider requirement. A Data Provider is a service dedicated to handle access and serve data from a data storage to multiple clients. Each client may have different needs on which set of data or data update frequency, the Data Provider must be able to handle it and to provide the data requested.
 
-This experiment contains three different architecture scenarios to fetch data and serve it to multiple independent clients. At the end, there is a comparison between each one in regard to how well they fit new features in the format of clients consuming new data type. Exploring points such as performance, developer experience, client autonomy and infrastructure.
+This exploration is made by an experiment in which three different architectures, scenarios, that solve the Data Provider requirement – contain a service that fetches data and serves it to multiple independent clients. At the end, there is a comparison between each one in regard to how well they fit new features in the format of clients consuming new data type. Exploring points such as performance, developer experience, client autonomy and infrastructure.
 
-Each scenario contain a different approach in regards to communication, but using the same components. The three components that compose the experiment:
+In this experiment, each scenario have the same requirements of implementing the same three components, they differ on the communication between components. The three components that compose the experiment:
 
 {Data Consumers}
 \label{sec:dataconsumer}

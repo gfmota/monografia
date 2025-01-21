@@ -23,11 +23,11 @@
 
 \section{Introduction}
 \label{sec:introductioning}
-OpenDataHub (ODH) is a digital platform that makes data from different sources available in a standardized pattern, removing the complexity from integrating multiple data sources for the users. The full picture of their system can be split on three functionalities:
+OpenDataHub (ODH) is a digital platform that makes data from different sources available in a standardized pattern, removing the complexity from integrating multiple data sources for the users\footnote{Reference from OpenDataHub's webpage https://opendatahub.com/}. The full picture of their system can be split into three functionalities:
 
 \begin{itemize}
     \item Data ingestion: applications responsible for retrieving or receiving data from external data sources, identifying, transforming and storing it.
-    \item Data storage: the data is stored in as stations and values, where stations can contain other stations or values, and values are measurements ingested. For example, a charging plug station is a station that contains plugs, each plug is a station that contains a value ”available” or “not available”. Stations can contain more than one value, for example, a latitude-longitude point is a station that contain values for wind speed, wind direction, air pressure, and others. These values are stored in the same unit for every station, no matter the original data source unit and format.
+    \item Data storage: the data is stored in as stations-values format  – stations are complex objects that have a type and can contain another stations or a properties, a list of numeric values followed by data that describe it, such as value name and measurement unit\footnote{Reference OpenDataHub's documentation https://opendatahub.readthedocs.io/en/latest/howto/mobility/getstarted.html#getting-started}. For example, a charging plug station is a station that contains plugs, each plug is a station that contains a value ”available” or “not available”. Stations can contain more than one value, for example, a latitude-longitude point is a station that contain values for wind speed, wind direction, air pressure, and others. These values are stored in the same unit for every station, no matter the original data source unit and format.
     \item Data exposure: a common API to make data from stations available for end users.
 \end{itemize}
 
@@ -102,7 +102,7 @@ However, the raw data persistence does not depend on the metadata configuration.
 \subsection{Metadata}
 \label{sec:metadata}
 
-The solution uses structural metadata about the data ingested to transform data from its raw structure into the ODH's stations pattern. This metadata can be sent or collected with the data, or can be configured to be applied on data collected during a time range~\cite{Metadata}.
+The solution uses structural metadata about the data ingested to transform data from its raw structure into the ODH's stations pattern. This metadata can be sent or collected with the data, or can be configured to be applied on data collected during a time range(~\cite{Metadata}).
 
 There is a metadata storage to store active configurations and to help debugging. The application dedicated to handle access and operations on the storage is the Metadata Service.
 

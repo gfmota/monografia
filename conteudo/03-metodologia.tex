@@ -1,12 +1,8 @@
-%!TeX root=../tese.tex
-%("dica" para o editor de texto: este arquivo é parte de um documento maior)
-% para saber mais: https://tex.stackexchange.com/q/78101
-
 \chapter{Methodology}
 
-The goal of this work is to explore the concept of extensibility on MSA and understand which components and concepts are key to develop an extensible software system. To reach it, it studies two software scenarios with different MSA solutions, comparing each solution for its design, development, and execution.
+The goal of this work is to explore the concept of extensibility on MSA, Microservice Architecture, and understand which components and concepts are key to develop an extensible software system. To reach it, we study two software use case with different MSA solutions, comparing each solution regarding design, development, and execution.
 
-To do so, it was done in an iterative process with solution design, architecture implementation, metrics collection and evaluation, inspired by Design Science Research~\cite{DesignParad}.
+To do so, the study was done in an iterative process with solution design, architecture implementation, metrics collection and evaluation, inspired by Design Science Research(~\cite{DesignParad}).
 
 \begin{figure}
     \centering
@@ -14,7 +10,7 @@ To do so, it was done in an iterative process with solution design, architecture
     \caption{Methodology cycle.\label{fig:subfigures1}}
 \end{figure}
 
-During the solution design, the case study is selected and the architectures solutions are designed. Then, the architecture's microservices are implemented and integrated locally. Once the application is ready, it is executed on different tests according to the study case and metrics are collected in regards to development experience and runtime measurements. At the end of the iteration, the patterns are compared and the metrics collected are evaluated.
+During the solution design, we set the use case that is going to be studied and which architectures solutions, or scenarios, we want to explore. Then, the architecture's microservices are implemented and integrated locally. Once the application is ready, it is executed on different tests according to the study case and metrics are collected in regards to development experience and runtime measurements. At the end of the iteration, the scenarios are compared and the metrics collected are evaluated.
 
 \begin{figure}
     \centering
@@ -24,7 +20,7 @@ During the solution design, the case study is selected and the architectures sol
 
 It was done in two iterations, each iteration was a case study where the use of microservices is required and extensibility is a non-functional requirement.
 
-The first iteration was based on a common feature from multiple systems: to serve data to different clients. We named this case as “Data Provider”.
+The first iteration was based on a common feature from multiple systems: a service dedicated to handling access and serving data from a common data storage to different clients. We named this case as “Data Provider”.
 
 An initial solution is to protect the data source by exposing it as a service. The clients then access it via a REST API using a polling strategy. This study case compares it with two asynchronous approaches: a registration system that implements internally the broadcasting of the data exposed as REST API, and an event-based communication that delegates the broadcasting to a message broker.
 
